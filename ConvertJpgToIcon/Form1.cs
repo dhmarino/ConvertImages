@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Svg;
+using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -125,6 +126,42 @@ namespace ConvertJpgToIcon
                     fs.Write(bitmapData, 0, bitmapData.Length);
                 }
             }
+        }
+
+        private void btnSvgToJpg_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "SVG Files (*.svg)|*.svg",
+                Title = "Seleccionar un archivo SVG"
+            };
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string inputPath = openFileDialog.FileName;
+                string outputPath = Path.ChangeExtension(inputPath, ".jpg");
+
+                ConvertSvgToJpg(inputPath, outputPath);
+
+                MessageBox.Show($"Archivo JPG guardado en: {outputPath}", "Conversión exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+        private void ConvertSvgToJpg(string inputPath, string outputPath)
+        {
+            // Cargar el archivo SVG
+            SvgDocument svgDocument = SvgDocument.Open(inputPath);
+
+            // Especificar el tamaño de salida del JPG
+            Bitmap bitmap = new Bitmap((int)svgDocument.Width, (int)svgDocument.Height);
+
+            // Renderizar el SVG en un bitmap
+            using (Graphics graphics = Graphics.FromImage(bitmap))
+            {
+                svgDocument.Draw(graphics);
+            }
+
+            // Guardar el bitmap como archivo JPG
+            bitmap.Save(outputPath, ImageFormat.Jpeg);
         }
     }
 }

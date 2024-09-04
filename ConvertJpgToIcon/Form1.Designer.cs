@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.buttonConvert = new System.Windows.Forms.Button();
             this.buttonConvert2 = new System.Windows.Forms.Button();
+            this.btnSvgToJpg = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonConvert
@@ -55,11 +56,23 @@
             this.buttonConvert2.UseVisualStyleBackColor = true;
             this.buttonConvert2.Click += new System.EventHandler(this.buttonConvert2_Click);
             // 
+            // btnSvgToJpg
+            // 
+            this.btnSvgToJpg.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnSvgToJpg.Location = new System.Drawing.Point(283, 419);
+            this.btnSvgToJpg.Name = "btnSvgToJpg";
+            this.btnSvgToJpg.Size = new System.Drawing.Size(202, 97);
+            this.btnSvgToJpg.TabIndex = 2;
+            this.btnSvgToJpg.Text = "SVG to JPG";
+            this.btnSvgToJpg.UseVisualStyleBackColor = true;
+            this.btnSvgToJpg.Click += new System.EventHandler(this.btnSvgToJpg_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 617);
+            this.Controls.Add(this.btnSvgToJpg);
             this.Controls.Add(this.buttonConvert2);
             this.Controls.Add(this.buttonConvert);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -73,6 +86,7 @@
 
         private System.Windows.Forms.Button buttonConvert;
         private System.Windows.Forms.Button buttonConvert2;
+        private System.Windows.Forms.Button btnSvgToJpg;
     }
 }
 
