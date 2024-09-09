@@ -14,7 +14,7 @@ namespace ConvertJpgToIcon
             InitializeComponent();
         }
 
-        private void buttonConvert_Click(object sender, EventArgs e)
+        private void BtnConvertJpgToIco_Click(object sender, EventArgs e)
         {
             FormTamañoIcono formTamaño = new FormTamañoIcono();
             if (formTamaño.ShowDialog() == DialogResult.OK)
@@ -89,7 +89,7 @@ namespace ConvertJpgToIcon
             
         }
 
-        private void buttonConvert2_Click(object sender, EventArgs e)
+        private void BtnConvertPngToIco_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
@@ -142,7 +142,7 @@ namespace ConvertJpgToIcon
             }
         }
 
-        private void btnSvgToJpg_Click(object sender, EventArgs e)
+        private void BtnSvgToJpg_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
             {

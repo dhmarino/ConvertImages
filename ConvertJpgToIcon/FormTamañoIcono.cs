@@ -20,13 +20,13 @@ namespace ConvertJpgToIcon
             InitializeComponent();
         }
 
-        private void buttonCancelar_Click(object sender, EventArgs e)
+        private void ButtonCancelar_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
             Close();
         }
 
-        private void buttonConfirmar_Click(object sender, EventArgs e)
+        private void ButtonConfirmar_Click(object sender, EventArgs e)
         {
             TamañoIcono = textBox1.Text.ToLower();
             string patron = @"^\d+(\.\d+)?x\d+(\.\d+)?$";

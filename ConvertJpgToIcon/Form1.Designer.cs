@@ -29,52 +29,52 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.buttonConvert = new System.Windows.Forms.Button();
-            this.buttonConvert2 = new System.Windows.Forms.Button();
-            this.btnSvgToJpg = new System.Windows.Forms.Button();
+            this.BtnConvertJpgToIco = new System.Windows.Forms.Button();
+            this.BtnConvertPngToIco = new System.Windows.Forms.Button();
+            this.BtnSvgToJpg = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // buttonConvert
+            // BtnConvertJpgToIco
             // 
-            this.buttonConvert.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.buttonConvert.Location = new System.Drawing.Point(283, 84);
-            this.buttonConvert.Name = "buttonConvert";
-            this.buttonConvert.Size = new System.Drawing.Size(202, 97);
-            this.buttonConvert.TabIndex = 0;
-            this.buttonConvert.Text = "JPG to ICO";
-            this.buttonConvert.UseVisualStyleBackColor = true;
-            this.buttonConvert.Click += new System.EventHandler(this.buttonConvert_Click);
+            this.BtnConvertJpgToIco.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.BtnConvertJpgToIco.Location = new System.Drawing.Point(283, 84);
+            this.BtnConvertJpgToIco.Name = "BtnConvertJpgToIco";
+            this.BtnConvertJpgToIco.Size = new System.Drawing.Size(202, 97);
+            this.BtnConvertJpgToIco.TabIndex = 0;
+            this.BtnConvertJpgToIco.Text = "JPG to ICO";
+            this.BtnConvertJpgToIco.UseVisualStyleBackColor = true;
+            this.BtnConvertJpgToIco.Click += new System.EventHandler(this.BtnConvertJpgToIco_Click);
             // 
-            // buttonConvert2
+            // BtnConvertPngToIco
             // 
-            this.buttonConvert2.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.buttonConvert2.Location = new System.Drawing.Point(283, 248);
-            this.buttonConvert2.Name = "buttonConvert2";
-            this.buttonConvert2.Size = new System.Drawing.Size(202, 97);
-            this.buttonConvert2.TabIndex = 1;
-            this.buttonConvert2.Text = "PNG to ICO";
-            this.buttonConvert2.UseVisualStyleBackColor = true;
-            this.buttonConvert2.Click += new System.EventHandler(this.buttonConvert2_Click);
+            this.BtnConvertPngToIco.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.BtnConvertPngToIco.Location = new System.Drawing.Point(283, 248);
+            this.BtnConvertPngToIco.Name = "BtnConvertPngToIco";
+            this.BtnConvertPngToIco.Size = new System.Drawing.Size(202, 97);
+            this.BtnConvertPngToIco.TabIndex = 1;
+            this.BtnConvertPngToIco.Text = "PNG to ICO";
+            this.BtnConvertPngToIco.UseVisualStyleBackColor = true;
+            this.BtnConvertPngToIco.Click += new System.EventHandler(this.BtnConvertPngToIco_Click);
             // 
-            // btnSvgToJpg
+            // BtnSvgToJpg
             // 
-            this.btnSvgToJpg.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnSvgToJpg.Location = new System.Drawing.Point(283, 419);
-            this.btnSvgToJpg.Name = "btnSvgToJpg";
-            this.btnSvgToJpg.Size = new System.Drawing.Size(202, 97);
-            this.btnSvgToJpg.TabIndex = 2;
-            this.btnSvgToJpg.Text = "SVG to JPG";
-            this.btnSvgToJpg.UseVisualStyleBackColor = true;
-            this.btnSvgToJpg.Click += new System.EventHandler(this.btnSvgToJpg_Click);
+            this.BtnSvgToJpg.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.BtnSvgToJpg.Location = new System.Drawing.Point(283, 419);
+            this.BtnSvgToJpg.Name = "BtnSvgToJpg";
+            this.BtnSvgToJpg.Size = new System.Drawing.Size(202, 97);
+            this.BtnSvgToJpg.TabIndex = 2;
+            this.BtnSvgToJpg.Text = "SVG to JPG";
+            this.BtnSvgToJpg.UseVisualStyleBackColor = true;
+            this.BtnSvgToJpg.Click += new System.EventHandler(this.BtnSvgToJpg_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 617);
-            this.Controls.Add(this.btnSvgToJpg);
-            this.Controls.Add(this.buttonConvert2);
-            this.Controls.Add(this.buttonConvert);
+            this.Controls.Add(this.BtnSvgToJpg);
+            this.Controls.Add(this.BtnConvertPngToIco);
+            this.Controls.Add(this.BtnConvertJpgToIco);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Conversor Imagenes";
@@ -84,9 +84,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonConvert;
-        private System.Windows.Forms.Button buttonConvert2;
-        private System.Windows.Forms.Button btnSvgToJpg;
+        private System.Windows.Forms.Button BtnConvertJpgToIco;
+        private System.Windows.Forms.Button BtnConvertPngToIco;
+        private System.Windows.Forms.Button BtnSvgToJpg;
     }
 }
 
