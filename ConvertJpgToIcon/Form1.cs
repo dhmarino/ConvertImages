@@ -91,23 +91,32 @@ namespace ConvertJpgToIcon
 
         private void BtnConvertPngToIco_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog
+            FormTamañoIcono formTamaño = new FormTamañoIcono();
+
+            if (formTamaño.ShowDialog() == DialogResult.OK)
             {
-                Filter = "PNG Files (*.png)|*.png",
-                Title = "Seleccionar un archivo PNG"
-            };
+                string tamañoIcono = formTamaño.TamañoIcono;
+                int x = int.Parse(tamañoIcono.Split('x')[0]);
+                int y = (byte)int.Parse(tamañoIcono.Split('x')[1]);
 
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                string inputPath = openFileDialog.FileName;
-                string outputPath = Path.ChangeExtension(inputPath, ".ico");
+                OpenFileDialog openFileDialog = new OpenFileDialog
+                {
+                    Filter = "PNG Files (*.png)|*.png",
+                    Title = "Seleccionar un archivo PNG"
+                };
 
-                ConvertPngToIcon(inputPath, outputPath);
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string inputPath = openFileDialog.FileName;
+                    string outputPath = Path.ChangeExtension(inputPath, ".ico");
 
-                MessageBox.Show($"Archivo ICO guardado en: {outputPath}", "Conversión exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ConvertPngToIcon(inputPath, outputPath, x, y );
+
+                    MessageBox.Show($"Archivo ICO guardado en: {outputPath}", "Conversión exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
-        private void ConvertPngToIcon(string inputPath, string outputPath)
+        private void ConvertPngToIcon(string inputPath, string outputPath, int x, int y)
         {
             using (Bitmap bitmap = new Bitmap(inputPath))
             {
@@ -120,8 +129,8 @@ namespace ConvertJpgToIcon
                     fs.WriteByte(1); fs.WriteByte(0); // Image count
 
                     // Escribir la entrada de directorio para el icono
-                    fs.WriteByte(32); // Width
-                    fs.WriteByte(32); // Height
+                    fs.WriteByte((byte)x); // Width
+                    fs.WriteByte((byte)y); // Height
                     fs.WriteByte(0); // Color count (0 = no palette)
                     fs.WriteByte(0); // Reserved
                     fs.WriteByte(1); fs.WriteByte(0); // Planes
@@ -129,7 +138,7 @@ namespace ConvertJpgToIcon
                     byte[] bitmapData;
                     using (MemoryStream ms = new MemoryStream())
                     {
-                        Bitmap iconBitmap = new Bitmap(bitmap, new Size(32, 32));
+                        Bitmap iconBitmap = new Bitmap(bitmap, new Size(x, y));
                         iconBitmap.Save(ms, ImageFormat.Png);
                         bitmapData = ms.ToArray();
                     }
