@@ -12,8 +12,9 @@ namespace ConvertJpgToIcon
         public Form1()
         {
             InitializeComponent();
+            var versiones = typeof(Form1).Assembly.GetName().Version;
+            lblVersion.Text = "Versión " + versiones.ToString();
         }
-
         private void BtnConvertJpgToIco_Click(object sender, EventArgs e)
         {
             FormTamañoIcono formTamaño = new FormTamañoIcono();
@@ -51,7 +52,6 @@ namespace ConvertJpgToIcon
                 }
             }
         }
-
         private void ConvertJpgToIcon(string inputPath, string outputPath, int x, int y)
         {
             
@@ -88,7 +88,6 @@ namespace ConvertJpgToIcon
                 }
             
         }
-
         private void BtnConvertPngToIco_Click(object sender, EventArgs e)
         {
             FormTamañoIcono formTamaño = new FormTamañoIcono();
@@ -150,7 +149,6 @@ namespace ConvertJpgToIcon
                 }
             }
         }
-
         private void BtnSvgToJpg_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
