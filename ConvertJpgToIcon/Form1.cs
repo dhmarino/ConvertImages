@@ -184,5 +184,31 @@ namespace ConvertJpgToIcon
             // Guardar el bitmap como archivo JPG
             bitmap.Save(outputPath, ImageFormat.Jpeg);
         }
+
+        private void BtnTiffToJpg_Click(object sender, EventArgs e)
+        {
+            // Ruta del archivo TIFF multipágina
+            string tiffFilePath = @"C:\temp\MultiTiff\multipage_tiff_example.tif";
+            // Carpeta de salida para los archivos JPG
+            string outputFolder = @"C:\temp\Jpgs";
+
+            ConvertTiffToJpg(tiffFilePath, outputFolder);
+        }
+        private void ConvertTiffToJpg(string tiffFilePath, string outputFolder)
+        {
+            Image tiffImage = Image.FromFile(tiffFilePath);
+            FrameDimension frameDimension = new FrameDimension(tiffImage.FrameDimensionsList[0]);
+            int frameCount = tiffImage.GetFrameCount(frameDimension);
+
+            for (int i = 0; i < frameCount; i++)
+            {
+                tiffImage.SelectActiveFrame(frameDimension, i);
+                string outputFilePath = System.IO.Path.Combine(outputFolder, $"page_{i + 1}.jpg");
+                tiffImage.Save(outputFilePath, ImageFormat.Jpeg);
+            }
+
+            tiffImage.Dispose();
+            MessageBox.Show("Conversión completada.");
+        }
     }
 }
